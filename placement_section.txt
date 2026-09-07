@@ -1,0 +1,46 @@
+date : 2/9/2026
+
+
+big O : its a time complexity is less or equal to the worst case  ex: -O(n)
+
+big-omega : its a complexity is going to least or best case  ex : O(1)
+
+big-theta : its a complexity is going within bounds of the worst and best cases   ex : O(n/2)
+
+
+>>>> O(1) - constant time
+	array = [1,2,3,4,5]
+	array[0] //it takes constant time to access first element
+
+
+>>>> O(n) - linear time
+	array = [1,2,3,4,5]
+	for element in array:
+		print(element)  //linear since it is visiting every element of array
+
+
+>>>> O(log n) - logarithmic time
+	array = [1,2,3,4,5]
+	for index in range(0,len(array),3):
+		print(array[index])   //logarithmic time since it is visiting only some elements
+
+
+>>>> O(n^2) - quadratic time
+	array = [1,2,3,4,5]
+	for ix in range:
+		for y in range:
+			print(x,y)   // looking at a every index in the array twice
+
+
+>>>> O(2n)  - exponential time
+	def Fibonacci(n) :
+		if n<= 1:
+			return n
+		return Fibonacci(n-1) + Fibonacci(n-2)   //double recursion in Fibonacci
+
+
+
+
+
+
+
