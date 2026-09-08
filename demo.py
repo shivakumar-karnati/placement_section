@@ -866,33 +866,89 @@
 # A linked liat is made up of independent nodes that may contains any type of data and 
 # each node has a reference to the nextnnode in the link.
 
-class Node:   #this is n=only for create a independent node
+#static linked list  
+
+# class Node:   #this is n=only for create a independent node
+#     def __init__(self,value):
+#         self.data = value    #[10|102]->[20|103]->[30|none]
+#         self.next = None      #   101       102     103
+
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None   #[None]
+
+
+# linkedobj = LinkedList()  
+
+# # creating independent nodes
+# linkedobj.head = Node(10)  #101
+# second         = Node(20)   #102
+# third          = Node(30)   #103
+# fourth         = Node(40)
+
+
+# #connection nodes
+# linkedobj.head.next = second
+# second.next = third
+# third.next = fourth
+
+
+# #display linkedlist
+
+# while linkedobj.head != None:
+#     print("[",linkedobj.head.data,"|",linkedobj.head.next,"]","->",end="")
+#     linkedobj.head = linkedobj.head.next
+
+
+
+# dynamic linked list
+
+class Node:
     def __init__(self,value):
-        self.data = value    #[10|102]->[20|103]->[30|none]
-        self.next = None      #   101       102     103
+        self.data = value  #[10|None]   [5|none]
+        self.Next = None
 
 class LinkedList:
     def __init__(self):
-        self.head = None   #[None]
+        self.head = None
+        self.tail = None
+
+    def addNodeBeginning(self,value):
+        nodeValue = Node(value)
+
+        if self.head is None:
+            self.head = nodeValue
+            self.tail = nodeValue
+        else:
+            nodeValue.Next = self.head
+            self.head = nodeValue
 
 
-linkedobj = LinkedList()  
+    def addNoteEnd(self,value):
+        nodevalue = Node(value)
+        if self.head == None:
+            self.head = nodevalue
+            self.tail = nodevalue
 
-# creating independent nodes
-linkedobj.head = Node(10)  #101
-second         = Node(20)   #102
-third          = Node(30)   #103
-fourth         = Node(40)
-
-
-#connection nodes
-linkedobj.head.next = second
-second.next = third
-third.next = fourth
+        else:
+            self.tail.Next = nodevalue
+            self.tail = nodevalue
+    # def addInBetween(self,place,value):
 
 
-#display linkedlist
+    def display(self):
+        while self.head != None:
+            print("[",self.head.data,"|",self.head.Next,"]","->",end="")
+            self.head = self.head.Next
+        
 
-while linkedobj.head != None:
-    print("[",linkedobj.head.data,"|",linkedobj.head.next,"]","->",end="")
-    linkedobj.head = linkedobj.head.next
+
+linked_obj = LinkedList()
+linked_obj.addNodeBeginning(10)
+linked_obj.addNodeBeginning(5)
+linked_obj.addNodeBeginning(50)
+
+linked_obj.addNoteEnd(20)
+linked_obj.addNoteEnd(30)
+
+linked_obj.display()
